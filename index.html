@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kabar Liga</title>
+<meta name="description" content="Berita, analisis, dan cerita Liga Futsal KAF Beji.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kabar Liga">
+<meta property="og:title" content="Kabar Liga - Media Liga Futsal KAF Beji">
+<meta property="og:description" content="Berita, analisis, klasemen, dan cerita di balik setiap pertandingan Liga Futsal KAF Beji.">
+<meta property="og:image" content="https://kabarligakafbeji.vercel.app/Logo%20liga.jpeg">
+<meta property="og:url" content="https://kabarligakafbeji.vercel.app/">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root { --hijau:#2c7746; --hitam:#111; --abu:#f2f2f2; --garis:#e5e5e5; --teks:#222; --redup:#888; }
@@ -294,7 +301,7 @@ const halaman = {
     try { localStorage.kl_baca = JSON.stringify(baca); } catch {}
     const isi = a.isi.map(p => `<p>${p}</p>`);
     if (a.kutipan) isi.splice(Math.min(2, isi.length), 0, `<blockquote>"${a.kutipan[0]}"<cite>${a.kutipan[1]}</cite></blockquote>`);
-    const url = encodeURIComponent(location.href), jdl = encodeURIComponent(a.judul);
+    const url = encodeURIComponent(`${location.origin}/a/${encodeURIComponent(a.id)}`), jdl = encodeURIComponent(a.judul);
     const terkait = urut.filter(x => x.id !== a.id && (x.kategori === a.kategori || x.tag.some(t => a.tag.includes(t)))).slice(0, 4);
     document.title = a.judul + ' | Kabar Liga';
     return `<main><div class="wadah dua"><article class="artikel">${lbl(a)}<h1>${a.judul}</h1>${meta(a)}
