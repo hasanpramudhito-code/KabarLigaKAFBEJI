@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kabar Liga</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root { --hijau:#2c7746; --hitam:#111; --abu:#f2f2f2; --garis:#e5e5e5; --teks:#222; --redup:#888; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Roboto',sans-serif; color:var(--teks); background:#fff; }
+a { color:inherit; text-decoration:none; }
+img { display:block; max-width:100%; }
+.wadah { max-width:1200px; margin:0 auto; padding:0 16px; }
+.img { display:block; background:#ccc center/cover no-repeat; }
+html, body { overflow-x:hidden; }
+
+/* header */
+header { background:var(--hitam); color:#fff; position:sticky; top:0; z-index:20; box-shadow:0 2px 8px rgba(0,0,0,.3); }
+header .wadah { display:flex; align-items:center; gap:20px; height:64px; }
+.logo { display:flex; align-items:center; gap:10px; font-weight:900; font-size:22px; letter-spacing:1px; white-space:nowrap; }
+.logo img { width:40px; height:40px; border-radius:50%; }
+.logo span { color:var(--hijau); }
+nav { display:flex; gap:2px; flex:1; overflow-x:auto; scrollbar-width:none; }
+nav a { padding:22px 12px; font-size:13px; font-weight:700; text-transform:uppercase; white-space:nowrap; border-bottom:3px solid transparent; }
+nav a:hover, nav a.on { color:var(--hijau); border-color:var(--hijau); }
+.cari { display:flex; }
+.cari input { width:170px; padding:8px 10px; border:0; background:#2a2a2a; color:#fff; font:inherit; font-size:13px; }
+.cari button { background:var(--hijau); border:0; color:#fff; padding:0 12px; cursor:pointer; }
+
+/* hero slider */
+.hero { position:relative; height:520px; overflow:hidden; background:#000; color:#fff; }
+.slide { position:absolute; inset:0; opacity:0; transition:opacity .7s; }
+.slide.on { opacity:1; z-index:1; }
+.slide .img { position:absolute; inset:0; }
+.slide::after { content:''; position:absolute; inset:0; background:linear-gradient(transparent 30%, rgba(0,0,0,.85)); }
+.slide .isi { position:absolute; left:0; right:0; bottom:120px; z-index:2; }
+.slide h2 { font-size:clamp(24px,4vw,42px); line-height:1.15; max-width:800px; margin:12px 0; }
+.label { display:inline-block; background:var(--hijau); color:#fff; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; padding:4px 10px; }
+.penulis { font-size:13px; color:#ddd; display:flex; gap:14px; align-items:center; }
+.penulis b { color:#fff; }
+.thumbs { position:absolute; bottom:0; left:0; right:0; z-index:3; background:rgba(0,0,0,.6); }
+.thumbs .wadah { display:grid; grid-template-columns:repeat(4,1fr); }
+.thumbs button { display:flex; gap:10px; align-items:center; text-align:left; padding:14px 10px; background:none; border:0; border-top:3px solid transparent; color:#bbb; font:inherit; font-size:12.5px; cursor:pointer; }
+.thumbs button.on { border-color:var(--hijau); color:#fff; }
+.thumbs .img { width:56px; height:42px; flex-shrink:0; }
+
+/* layout */
+main { padding:36px 0 50px; }
+.dua { display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:36px; }
+.judul-sek { display:flex; align-items:center; gap:12px; font-size:18px; font-weight:900; text-transform:uppercase; margin-bottom:20px; }
+.judul-sek::after { content:''; flex:1; height:2px; background:var(--garis); }
+.judul-sek::before { content:''; width:6px; height:22px; background:var(--hijau); }
+
+.list-item { display:grid; grid-template-columns:280px 1fr; gap:20px; padding-bottom:22px; margin-bottom:22px; border-bottom:1px solid var(--garis); }
+.list-item .img { aspect-ratio:16/10; position:relative; }
+.list-item .img .label { position:absolute; top:10px; left:10px; }
+.list-item h3 { font-size:21px; line-height:1.3; margin-bottom:8px; }
+.list-item h3:hover, .kecil h4:hover, .kartu h4:hover { color:var(--hijau); }
+.list-item p { font-family:'Merriweather',serif; font-size:13.5px; line-height:1.7; color:#555; margin-bottom:10px; }
+.meta { font-size:12px; color:var(--redup); }
+.meta b { color:var(--teks); }
+
+aside .blok { margin-bottom:34px; }
+.tab { display:flex; margin-bottom:14px; }
+.tab button { flex:1; padding:10px; border:0; background:var(--abu); font:inherit; font-weight:700; font-size:13px; text-transform:uppercase; cursor:pointer; }
+.tab button.on { background:var(--hijau); color:#fff; }
+.kecil { display:grid; grid-template-columns:90px 1fr; gap:12px; padding:12px 0; border-bottom:1px solid var(--garis); }
+.kecil .img { aspect-ratio:4/3; }
+.kecil h4 { font-size:14px; line-height:1.35; margin-bottom:4px; }
+.nomor { counter-reset:n; }
+.nomor .kecil { grid-template-columns:34px 1fr; }
+.nomor .kecil::before { counter-increment:n; content:counter(n,decimal-leading-zero); font-size:24px; font-weight:900; color:var(--hijau); }
+.kat-list a { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--garis); font-size:14px; font-weight:500; }
+.kat-list a:hover { color:var(--hijau); }
+.kat-list span { background:var(--abu); padding:0 8px; font-size:12px; }
+.kirim { background:var(--hijau); color:#fff; padding:22px; }
+.kirim h4 { font-size:18px; margin-bottom:8px; }
+.kirim p { font-size:13px; line-height:1.6; margin-bottom:14px; }
+.tombol { display:inline-block; background:var(--hitam); color:#fff; padding:10px 18px; font-size:13px; font-weight:700; text-transform:uppercase; border:0; cursor:pointer; font-family:inherit; }
+
+/* section gelap */
+.gelap { background:#1b1b1b; color:#fff; padding:44px 0; }
+.gelap .judul-sek::after { background:#333; }
+.grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.kartu .img { aspect-ratio:16/10; margin-bottom:12px; }
+.kartu h4 { font-size:16px; line-height:1.35; margin:8px 0 6px; }
+.gelap .meta { color:#999; }
+.gelap .meta b { color:#fff; }
+
+/* artikel */
+.artikel h1 { font-size:clamp(26px,4vw,40px); line-height:1.2; margin:14px 0; }
+.artikel .sampul { aspect-ratio:16/9; margin:20px 0 6px; }
+.artikel .badan { font-family:'Merriweather',serif; font-size:17px; line-height:1.9; }
+.artikel .badan p { margin-bottom:22px; }
+.artikel .ringkas { font-size:18px; font-style:italic; color:#555; border-left:4px solid var(--hijau); padding-left:16px; margin:24px 0; }
+blockquote { font-family:'Merriweather',serif; font-style:italic; font-size:21px; line-height:1.6; text-align:center; padding:26px; margin:30px 0; border-top:3px solid var(--hijau); border-bottom:3px solid var(--hijau); }
+blockquote cite { display:block; font-family:'Roboto'; font-style:normal; font-size:13px; font-weight:700; color:var(--hijau); margin-top:10px; }
+.tags { display:flex; flex-wrap:wrap; gap:8px; margin:30px 0; padding-top:20px; border-top:1px solid var(--garis); }
+.tags a { background:var(--abu); padding:6px 12px; font-size:12px; font-weight:500; }
+.tags a:hover { background:var(--hijau); color:#fff; }
+.bagikan { display:flex; gap:8px; align-items:center; font-size:13px; font-weight:700; }
+.bagikan a { padding:7px 14px; color:#fff; font-size:12px; }
+.kosong { padding:40px 0; color:var(--redup); }
+
+form.sharing { display:grid; gap:14px; max-width:700px; }
+form.sharing label { font-size:13px; font-weight:700; display:grid; gap:6px; }
+form.sharing input, form.sharing textarea, form.sharing select { padding:10px; border:1px solid #ccc; font:inherit; font-size:15px; }
+form.sharing textarea { min-height:260px; font-family:'Merriweather',serif; }
+
+/* sponsor */
+.sp-side { background:#1b1b1b; color:#fff; padding:20px; text-align:center; }
+.sp-side small { display:block; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#999; margin-bottom:12px; }
+.sp-side img { margin:0 auto 12px; max-width:200px; }
+.sp-side p { font-size:13px; line-height:1.6; color:#ccc; margin-bottom:14px; }
+.sp-side .tombol { background:#d4a017; color:#111; }
+.sp-top { display:block; background:#1b1b1b; color:#fff; border-bottom:3px solid #d4a017; }
+.sp-top .wadah { display:flex; align-items:center; gap:18px; padding-top:10px; padding-bottom:10px; }
+.sp-tag { background:#d4a017; color:#111; font-size:10px; font-weight:900; letter-spacing:1px; text-transform:uppercase; padding:4px 8px; white-space:nowrap; }
+.sp-logo { height:48px; width:auto; }
+.sp-teks { flex:1; font-size:13px; color:#bbb; }
+.sp-teks b { display:block; color:#fff; font-size:16px; }
+.sp-foto { display:flex; gap:6px; }
+.sp-foto img { width:64px; height:64px; object-fit:cover; }
+.sp-top .tombol { background:#d4a017; color:#111; white-space:nowrap; }
+.sp-top:hover .tombol { background:#fff; }
+@media (max-width:900px) { .sp-foto { display:none; } }
+@media (max-width:600px) { .sp-top .wadah { flex-wrap:wrap; gap:10px; } .sp-teks { flex-basis:100%; order:3; } .sp-top .tombol { margin-left:auto; padding:8px 12px; font-size:12px; } .sp-logo { height:34px; } .sp-tag { font-size:9px; padding:3px 6px; } }
+.galeri { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:20px 0; }
+.galeri img { width:100%; aspect-ratio:1; object-fit:cover; }
+@media (max-width:600px) { .galeri { grid-template-columns:1fr; } }
+
+/* klasemen & top skor */
+.tbl { width:100%; border-collapse:collapse; font-size:13px; }
+.tbl th { background:var(--hitam); color:#fff; font-size:11px; text-transform:uppercase; padding:8px 6px; }
+.tbl td { padding:8px 6px; border-bottom:1px solid var(--garis); text-align:center; }
+.tbl .kiri { text-align:left; }
+.tbl .sel { display:flex; align-items:center; gap:8px; font-weight:500; }
+.tbl tr:nth-child(2) td { background:#eef6f0; }
+.tbl .lg { width:24px; height:24px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+.tbl small { display:block; font-size:11px; color:var(--redup); font-weight:400; }
+.lihat { display:block; margin-top:10px; font-size:13px; font-weight:700; color:var(--hijau); }
+.sumber { margin-top:14px; font-size:12px; color:var(--redup); }
+.sumber a { color:var(--hijau); }
+
+/* footer */
+footer { background:var(--hitam); color:#aaa; font-size:14px; }
+footer .atas { display:grid; grid-template-columns:2fr 1fr 1fr; gap:36px; padding:44px 16px; }
+footer h5 { color:#fff; font-size:15px; text-transform:uppercase; margin-bottom:14px; }
+footer .atas a { display:block; padding:4px 0; }
+footer a:hover { color:var(--hijau); }
+footer p { line-height:1.7; }
+footer .bawah { border-top:1px solid #2a2a2a; padding:18px 16px; font-size:12px; }
+
+@media (max-width:900px) {
+  .dua { grid-template-columns:minmax(0,1fr); }
+  .grid4 { grid-template-columns:1fr 1fr; }
+  .thumbs { display:none; }
+  .slide .isi { bottom:40px; }
+  .hero { height:420px; }
+  .cari input { width:110px; }
+  .slide h2, .list-item h3 { overflow-wrap:anywhere; }
+  footer .atas { grid-template-columns:1fr; }
+}
+@media (max-width:600px) {
+  header .wadah { flex-wrap:wrap; height:auto; padding:10px 16px 0; gap:10px; }
+  nav { order:3; flex-basis:100%; }
+  nav a { padding:12px 10px; }
+  .cari { margin-left:auto; }
+  .list-item { grid-template-columns:1fr; }
+  .grid4 { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<header><div class="wadah">
+  <a class="logo" href="#/"><img src="Logo liga.jpeg" alt="">KABAR<span>LIGA</span></a>
+  <nav id="nav"></nav>
+  <form class="cari" onsubmit="location.hash='#/cari/'+encodeURIComponent(this.q.value);return false"><input name="q" placeholder="Pencarian..." aria-label="Cari"><button aria-label="Cari">&#128269;</button></form>
+</div></header>
+
+<a class="sp-top" href="#/sponsor"><div class="wadah">
+  <span class="sp-tag">Sponsor Resmi</span>
+  <img class="sp-logo" src="sponsor-logo.png" alt="Garmen Seragam">
+  <span class="sp-teks"><b>Seragam kerja, rompi &amp; kemeja custom</b>Jahitan rapi, tepat waktu, harga terjangkau.</span>
+  <span class="sp-foto"><img src="sponsor-seragam-kerja.png" alt=""><img src="sponsor-rompi.png" alt=""><img src="sponsor-kemeja.png" alt=""></span>
+  <span class="tombol">Pesan Seragam</span>
+</div></a>
+
+<div id="app"></div>
+
+<footer>
+  <div class="wadah atas">
+    <div><h5>Kabar Liga</h5><p>Media komunitas Liga Futsal Kuttab Beji. Berita, analisis, dan cerita di balik setiap pertandingan. Futsal bukan sekadar permainan, tapi tentang kebersamaan.</p></div>
+    <div><h5>Kategori</h5><div id="foot-kat"></div></div>
+    <div><h5>Tautan</h5><a href="#/">Home</a><a href="#/kirim">Kirim Tulisan</a><a href="#/sponsor">Sponsor</a><a href="#/tentang">Tentang Kami</a></div>
+  </div>
+  <div class="wadah bawah">&copy; <span id="tahun"></span> KABAR LIGA. All rights reserved.</div>
+</footer>
+
+<script src="artikel.js"></script>
+<script src="skorly-data.js" onerror="window.SKORLY = null"></script>
+<script>
+const EMAIL_REDAKSI = 'redaksi@kabarliga.id'; // ganti dengan email redaksi asli
+const SPONSOR = {
+  nama: 'Garmen Seragam', logo: 'sponsor-logo.png', web: 'https://garmenseragam.com',
+  ig: 'https://www.instagram.com/garmenseragam', yt: 'https://www.youtube.com/@garmenseragam',
+  alamat: 'PT Garmen Seragam Indonesia, Bellezza BSA 1st Floor SA1-06, Jl. Letjen Soepeno, Permata Hijau, Grogol Utara, Kebayoran Lama, Jakarta Selatan 12210',
+  galeri: [['sponsor-seragam-kerja.png', 'Seragam Kerja'], ['sponsor-rompi.png', 'Rompi'], ['sponsor-kemeja.png', 'Kemeja Seragam']],
+};
+const KATEGORI =['Berita', 'Analisis', 'Editorial', 'Cerita', 'Sharing'];
+
+const esc = s => String(s).replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`);
+const urut = [...ARTIKEL].sort((a, b) => b.tanggal.localeCompare(a.tanggal));
+const tgl = d => new Date(d).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+const img = a => `style="background-image:url('${encodeURI(a.gambar)}')"`;
+const link = a => `#/baca/${a.id}`;
+const meta = a => `<div class="meta">Oleh <b>${a.penulis}</b> · ${tgl(a.tanggal)}</div>`;
+const lbl = a => `<a class="label" href="#/kategori/${a.kategori}">${a.kategori}</a>`;
+
+const listItem = a => `<div class="list-item"><a class="img" href="${link(a)}" ${img(a)}><span class="label">${a.kategori}</span></a>
+  <div><a href="${link(a)}"><h3>${a.judul}</h3></a><p>${a.ringkas}</p>${meta(a)}</div></div>`;
+const kecil = a => `<div class="kecil"><a class="img" href="${link(a)}" ${img(a)}></a><div><a href="${link(a)}"><h4>${a.judul}</h4></a><div class="meta">${tgl(a.tanggal)}</div></div></div>`;
+const kecilNo = a => `<div class="kecil"><div><a href="${link(a)}"><h4>${a.judul}</h4></a><div class="meta">${a.kategori} · ${tgl(a.tanggal)}</div></div></div>`;
+const kartu = a => `<div class="kartu"><a class="img" href="${link(a)}" ${img(a)}></a>${lbl(a)}<a href="${link(a)}"><h4>${a.judul}</h4></a>${meta(a)}</div>`;
+
+// ponytail: "Populer" = artikel terlama dibaca di browser ini (localStorage); butuh analytics/server untuk populer sungguhan.
+const baca = (() => { try { return JSON.parse(localStorage.kl_baca || '{}'); } catch { return {}; } })();
+const populer = () => [...ARTIKEL].sort((a, b) => (baca[b.id] || 0) - (baca[a.id] || 0) || b.tanggal.localeCompare(a.tanggal));
+
+// Klasemen & top skor dari skorly (skorly-data.js, diperbarui lewat: node update-skorly.js)
+const LOGO_TIM = { andalusia: 'Andalusia.jpeg', madinah: 'Al Madinah.jpeg', mataram: 'Mataram Islam.jpeg', quds: 'Al Quds.jpeg', rayyah: 'ArRayah.jpeg', hamas: 'PPF Hamas.jpeg' };
+const logoTim = nama => {
+  const k = Object.keys(LOGO_TIM).find(k => nama.toLowerCase().includes(k));
+  return k ? `<img class="lg" src="${encodeURI(LOGO_TIM[k])}" alt="">` : '';
+};
+const namaTim = nama => esc(nama.replace(/ FC$/, '').replace('-', ' '));
+const skorlyInfo = () => `<div class="sumber">Sumber: <a href="${SKORLY.sumber}" target="_blank" rel="noopener">skorly.online</a> · diperbarui ${new Date(SKORLY.diperbarui).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' })}</div>`;
+function tabelKlasemen(lengkap) {
+  if (!window.SKORLY) return '<p class="kosong">Data klasemen belum tersedia.</p>';
+  return `<table class="tbl"><tr><th>#</th><th class="kiri">Tim</th><th>Main</th>${lengkap ? '<th>M</th><th>S</th><th>K</th><th>Gol</th>' : ''}<th>SG</th><th>Poin</th></tr>${
+    SKORLY.klasemen.map((r, i) => `<tr><td>${i + 1}</td><td class="kiri"><div class="sel">${logoTim(r.tim)}${namaTim(r.tim)}</div></td><td>${r.main}</td>${
+      lengkap ? `<td>${r.m}</td><td>${r.s}</td><td>${r.k}</td><td>${r.gm}-${r.gk}</td>` : ''}<td>${r.sg > 0 ? '+' : ''}${r.sg}</td><td><b>${r.poin}</b></td></tr>`).join('')}</table>`;
+}
+function tabelSkor(n) {
+  if (!window.SKORLY) return '<p class="kosong">Data top skor belum tersedia.</p>';
+  return `<table class="tbl"><tr><th>#</th><th class="kiri">Pemain</th><th>Gol</th></tr>${
+    SKORLY.topSkor.slice(0, n).map((p, i) => `<tr><td>${i + 1}</td><td class="kiri"><div class="sel">${logoTim(p.tim)}<span>${esc(p.nama)}<small>${namaTim(p.tim)}</small></span></div></td><td><b>${p.gol}</b></td></tr>`).join('')}</table>`;
+}
+
+function sidebar() {
+  return `<aside>
+    <div class="blok sp-side"><small>Sponsor Resmi Liga</small><a href="#/sponsor"><img src="${encodeURI(SPONSOR.logo)}" alt="${SPONSOR.nama}"></a>
+      <p>Konveksi seragam kerja, rompi, dan kemeja custom. Seragam Anda adalah cerminan perusahaan.</p><a class="tombol" href="#/sponsor">Kenali Sponsor</a></div>
+    <div class="blok"><h3 class="judul-sek">Klasemen</h3>${tabelKlasemen(false)}<a class="lihat" href="#/klasemen">Klasemen lengkap &amp; top skor &rarr;</a></div>
+    <div class="blok"><h3 class="judul-sek">Top Skor</h3>${tabelSkor(5)}</div>
+    <div class="blok"><div class="tab"><button class="on" data-t="0">Terbaru</button><button data-t="1">Populer</button></div>
+      <div data-p="0">${urut.slice(0, 5).map(kecil).join('')}</div>
+      <div data-p="1" class="nomor" hidden>${populer().slice(0, 5).map(kecilNo).join('')}</div></div>
+    <div class="blok"><h3 class="judul-sek">Kategori</h3><div class="kat-list">${KATEGORI.map(k =>
+      `<a href="#/kategori/${k}">${k}<span>${ARTIKEL.filter(a => a.kategori === k).length}</span></a>`).join('')}</div></div>
+    <div class="blok kirim"><h4>Kabar Liga Sharing</h4><p>Punya cerita, opini, atau analisis soal liga? Kirim tulisanmu dan jadi bagian dari Kabar Liga.</p><a class="tombol" href="#/kirim">Kirim Tulisan</a></div>
+  </aside>`;
+}
+
+function daftar(judul, arr) {
+  return `<main><div class="wadah dua"><section><h2 class="judul-sek">${judul}</h2>${arr.length ? arr.map(listItem).join('') : '<p class="kosong">Belum ada tulisan.</p>'}</section>${sidebar()}</div></main>`;
+}
+
+const halaman = {
+  '': () => {
+    const slider = urut.slice(0, 4);
+    return `<section class="hero">${slider.map((a, i) => `<div class="slide${i ? '' : ' on'}"><div class="img" ${img(a)}></div>
+        <div class="isi wadah">${lbl(a)}<a href="${link(a)}"><h2>${a.judul}</h2></a><div class="penulis"><b>${a.penulis}</b><span>${tgl(a.tanggal)}</span></div></div></div>`).join('')}
+      <div class="thumbs"><div class="wadah">${slider.map((a, i) => `<button data-s="${i}" class="${i ? '' : 'on'}"><span class="img" ${img(a)}></span>${a.judul}</button>`).join('')}</div></div></section>
+    <main><div class="wadah dua"><section><h2 class="judul-sek">Artikel Terbaru</h2>${urut.slice(0, 6).map(listItem).join('')}
+      <a class="tombol" href="#/semua">Lihat Lainnya</a></section>${sidebar()}</div></main>
+    <section class="gelap"><div class="wadah"><h2 class="judul-sek">Pilihan Redaksi</h2><div class="grid4">${
+      urut.filter(a => a.kategori !== 'Berita').slice(0, 4).map(kartu).join('')}</div></div></section>
+    <main><div class="wadah"><h2 class="judul-sek">Terbaru Dalam Kategori</h2><div class="grid4">${
+      KATEGORI.map(k => urut.find(a => a.kategori === k)).filter(Boolean).slice(0, 4).map(kartu).join('')}</div></div></main>`;
+  },
+  semua: () => daftar('Semua Artikel', urut),
+  kategori: k => daftar(esc(k), urut.filter(a => a.kategori === k)),
+  tag: t => daftar('Tag: ' + esc(t), urut.filter(a => a.tag.includes(t))),
+  cari: q => {
+    const s = q.toLowerCase();
+    return daftar(`Hasil pencarian "${esc(q)}"`, urut.filter(a => (a.judul + a.ringkas + a.isi.join(' ') + a.tag.join(' ')).toLowerCase().includes(s)));
+  },
+  baca: id => {
+    const a = ARTIKEL.find(x => x.id === id);
+    if (!a) return daftar('Artikel tidak ditemukan', []);
+    baca[id] = (baca[id] || 0) + 1;
+    try { localStorage.kl_baca = JSON.stringify(baca); } catch {}
+    const isi = a.isi.map(p => `<p>${p}</p>`);
+    if (a.kutipan) isi.splice(Math.min(2, isi.length), 0, `<blockquote>"${a.kutipan[0]}"<cite>${a.kutipan[1]}</cite></blockquote>`);
+    const url = encodeURIComponent(location.href), jdl = encodeURIComponent(a.judul);
+    const terkait = urut.filter(x => x.id !== a.id && (x.kategori === a.kategori || x.tag.some(t => a.tag.includes(t)))).slice(0, 4);
+    document.title = a.judul + ' | Kabar Liga';
+    return `<main><div class="wadah dua"><article class="artikel">${lbl(a)}<h1>${a.judul}</h1>${meta(a)}
+      <div class="img sampul" ${img(a)}></div>
+      <p class="ringkas">${a.ringkas}</p><div class="badan">${isi.join('')}</div>
+      <div class="tags">${a.tag.map(t => `<a href="#/tag/${encodeURIComponent(t)}">#${t}</a>`).join('')}</div>
+      <div class="bagikan">Bagikan: <a style="background:#25d366" target="_blank" rel="noopener" href="https://wa.me/?text=${jdl}%20${url}">WhatsApp</a>
+        <a style="background:#1877f2" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${url}">Facebook</a>
+        <a style="background:#000" target="_blank" rel="noopener" href="https://x.com/intent/post?text=${jdl}&url=${url}">X</a></div>
+      ${terkait.length ? `<h2 class="judul-sek" style="margin-top:40px">Baca Juga</h2><div class="grid4" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))">${terkait.map(kartu).join('')}</div>` : ''}
+      </article>${sidebar()}</div></main>`;
+  },
+  kirim: () => `<main><div class="wadah dua"><section><h2 class="judul-sek">Kirim Tulisan</h2>
+    <p style="margin-bottom:20px;line-height:1.7">Kabar Liga Sharing terbuka untuk semua: pemain, ofisial, suporter. Tulisan akan dibaca redaksi sebelum terbit.</p>
+    <form class="sharing" onsubmit="kirimTulisan(this);return false">
+      <label>Nama<input name="nama" required maxlength="80"></label>
+      <label>Kategori<select name="kat">${KATEGORI.map(k => `<option${k === 'Sharing' ? ' selected' : ''}>${k}</option>`).join('')}</select></label>
+      <label>Judul<input name="judul" required maxlength="150"></label>
+      <label>Tulisan<textarea name="isi" required></textarea></label>
+      <button class="tombol" style="background:var(--hijau);justify-self:start">Kirim ke Redaksi</button>
+    </form></section>${sidebar()}</div></main>`,
+  sponsor: () => `<main><div class="wadah dua"><section class="artikel"><span class="label">Sponsor Resmi</span><h1>${SPONSOR.nama}</h1>
+    <div class="badan"><p>Kabar Liga dan Liga Futsal Kuttab Beji didukung oleh <b>${SPONSOR.nama}</b>, konveksi seragam yang melayani seragam kerja, rompi, kemeja, seragam lapangan, teknisi, security, hingga hotel dan restoran.</p>
+    <p>Dengan penjahit berpengalaman, tim quality control, dan manajemen produksi yang tertata, Garmen Seragam menjamin kerapian jahitan, ketepatan ukuran, dan pengiriman tepat waktu, dengan garansi bahan dan warna serta harga terjangkau. Customer service siap melayani 24 jam, 7 hari.</p></div>
+    <div class="galeri">${SPONSOR.galeri.map(([g, t]) => `<img src="${encodeURI(g)}" alt="${t}">`).join('')}</div>
+    <p class="ringkas">${SPONSOR.alamat}</p>
+    <div class="bagikan"><a style="background:var(--hijau)" target="_blank" rel="noopener" href="${SPONSOR.web}">Website</a>
+      <a style="background:#c13584" target="_blank" rel="noopener" href="${SPONSOR.ig}">Instagram</a>
+      <a style="background:#e00" target="_blank" rel="noopener" href="${SPONSOR.yt}">YouTube</a></div>
+    </section>${sidebar()}</div></main>`,
+  klasemen: () => `<main><div class="wadah dua"><section><h2 class="judul-sek">Klasemen Liga Futsal KAF Beji</h2>${tabelKlasemen(true)}
+    <h2 class="judul-sek" style="margin-top:36px">Top Skor</h2>${tabelSkor(99)}${window.SKORLY ? skorlyInfo() : ''}</section>${sidebar()}</div></main>`,
+  tentang: () => `<main><div class="wadah dua"><section class="artikel"><h2 class="judul-sek">Tentang Kami</h2><div class="badan">
+    <p><b>Kabar Liga</b> adalah media komunitas Liga Futsal Kuttab Beji. Kami menulis lebih dari sekadar skor: cerita di balik laga, analisis taktik, dan semangat kebersamaan di lapangan.</p>
+    <p>Diikuti enam tim: Mataram Islam, Andalusia, PPF Hamas, Al Quds, Al Madinah, dan Ar Rayyah.</p></div></section>${sidebar()}</div></main>`,
+};
+
+function kirimTulisan(f) {
+  const body = `Nama: ${f.nama.value}\nKategori: ${f.kat.value}\n\n${f.isi.value}`;
+  location.href = `mailto:${EMAIL_REDAKSI}?subject=${encodeURIComponent('[Kabar Liga] ' + f.judul.value)}&body=${encodeURIComponent(body)}`;
+}
+
+let timer;
+function render() {
+  const [, page = '', arg = ''] = location.hash.split('/');
+  document.title = 'Kabar Liga';
+  document.getElementById('app').innerHTML = (halaman[page] || halaman[''])(decodeURIComponent(arg));
+  document.querySelectorAll('#nav a').forEach(a => a.classList.toggle('on', a.hash === location.hash || (!page && a.hash === '#/')));
+  scrollTo(0, 0);
+
+  clearInterval(timer);
+  const slides = document.querySelectorAll('.slide'), th = document.querySelectorAll('.thumbs button');
+  const ke = i => { slides.forEach((s, j) => s.classList.toggle('on', i === j)); th.forEach((s, j) => s.classList.toggle('on', i === j)); };
+  let cur = 0;
+  if (slides.length) timer = setInterval(() => ke(cur = (cur + 1) % slides.length), 6000);
+  th.forEach(b => b.onclick = () => { ke(cur = +b.dataset.s); });
+  document.querySelectorAll('.tab button').forEach(b => b.onclick = () => {
+    document.querySelectorAll('.tab button').forEach(x => x.classList.toggle('on', x === b));
+    document.querySelectorAll('[data-p]').forEach(p => p.hidden = p.dataset.p !== b.dataset.t);
+  });
+}
+
+document.getElementById('nav').innerHTML = '<a href="#/">Home</a>' + KATEGORI.map(k => `<a href="#/kategori/${k}">${k}</a>`).join('') + '<a href="#/klasemen">Klasemen</a>';
+document.getElementById('foot-kat').innerHTML = KATEGORI.map(k => `<a href="#/kategori/${k}">${k}</a>`).join('');
+document.getElementById('tahun').textContent = new Date().getFullYear();
+addEventListener('hashchange', render);
+render();
+</script>
+</body>
+</html>

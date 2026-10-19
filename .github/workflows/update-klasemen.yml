@@ -1,0 +1,25 @@
+# Ambil klasemen & top skor dari skorly tiap Minggu sore-malam, commit bila berubah.
+# Vercel otomatis deploy ulang setiap ada commit baru.
+name: Update klasemen skorly
+on:
+  schedule:
+    - cron: '0 10,12,14 * * 0'   # Minggu 17.00, 19.00, 21.00 WIB (UTC+7)
+  workflow_dispatch:             # tombol "Run workflow" manual di tab Actions
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node update-skorly.js
+      - run: |
+          git diff --quiet skorly-data.js && exit 0
+          git config user.name "kabar-liga-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add skorly-data.js
+          git commit -m "Update klasemen dari skorly"
+          git push
