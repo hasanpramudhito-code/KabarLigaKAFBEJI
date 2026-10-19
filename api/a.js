@@ -14,7 +14,11 @@ module.exports = async (req, res) => {
     vm.runInNewContext(await (await fetch(`${host}/artikel.js`)).text() + ';this.A = ARTIKEL;', ctx);
     a = ctx.A.find(x => x.id === id);
   } catch {}
-  const tujuan = a ? `/#/baca/${encodeURIComponent(id)}` : '/';
+  // Halaman non-artikel yang bisa dibagikan dengan preview sendiri: /a/sponsor
+  if (id === 'sponsor') a = { judul: 'Garmen Seragam - Sponsor Resmi Liga Futsal KAF Beji',
+    ringkas: 'Konveksi seragam kerja, rompi, dan kemeja custom. Jahitan rapi, tepat waktu, harga terjangkau.',
+    gambar: 'sponsor-seragam-kerja.png', tujuan: '/#/sponsor' };
+  const tujuan = a ? a.tujuan || `/#/baca/${encodeURIComponent(id)}` : '/';
   const judul = a ? teks(a.judul) : 'Kabar Liga';
   const ringkas = a ? teks(a.ringkas) : 'Berita, analisis, dan cerita Liga Futsal KAF Beji.';
   const gambar = `${host}/${encodeURI(a ? a.gambar : 'Logo liga.jpeg')}`;

@@ -331,6 +331,8 @@ const halaman = {
     <div class="bagikan"><a style="background:var(--hijau)" target="_blank" rel="noopener" href="${SPONSOR.web}">Website</a>
       <a style="background:#c13584" target="_blank" rel="noopener" href="${SPONSOR.ig}">Instagram</a>
       <a style="background:#e00" target="_blank" rel="noopener" href="${SPONSOR.yt}">YouTube</a></div>
+    <div class="bagikan" style="margin-top:12px">Bagikan: <a style="background:#25d366" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(SPONSOR.nama + ' - Sponsor Resmi Liga Futsal KAF Beji ' + location.origin + '/a/sponsor')}">WhatsApp</a>
+      <a style="background:#1877f2" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(location.origin + '/a/sponsor')}">Facebook</a></div>
     </section>${sidebar()}</div></main>`,
   klasemen: () => `<main><div class="wadah dua"><section><h2 class="judul-sek">Klasemen Liga Futsal KAF Beji</h2>${tabelKlasemen(true)}
     <h2 class="judul-sek" style="margin-top:36px">Top Skor</h2>${tabelSkor(99)}${window.SKORLY ? skorlyInfo() : ''}</section>${sidebar()}</div></main>`,
