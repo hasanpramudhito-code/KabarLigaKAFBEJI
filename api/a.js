@@ -1,5 +1,6 @@
 // Halaman share artikel: /a/<id> berisi tag Open Graph (judul, ringkasan, gambar) untuk preview WhatsApp/Facebook,
-// lalu langsung mengarahkan pembaca ke /#/baca/<id>. WhatsApp tidak menjalankan JavaScript, jadi tag ini wajib ada di HTML.
+// lalu mengarahkan pembaca lewat JavaScript (bukan meta refresh, karena WhatsApp ikut redirect itu dan kehilangan gambar).
+// Gambar preview sebaiknya JPG < 300 KB; lebih besar sering diabaikan WhatsApp.
 const vm = require('vm');
 
 const esc = s => String(s).replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`);
@@ -17,7 +18,7 @@ module.exports = async (req, res) => {
   // Halaman non-artikel yang bisa dibagikan dengan preview sendiri: /a/sponsor
   if (id === 'sponsor') a = { judul: 'Garmen Seragam - Sponsor Resmi Liga Futsal KAF Beji',
     ringkas: 'Konveksi seragam kerja, rompi, dan kemeja custom. Jahitan rapi, tepat waktu, harga terjangkau.',
-    gambar: 'sponsor-seragam-kerja.png', tujuan: '/#/sponsor' };
+    gambar: 'og-sponsor.jpg', lebar: 1200, tinggi: 630, tujuan: '/#/sponsor' };
   const tujuan = a ? a.tujuan || `/#/baca/${encodeURIComponent(id)}` : '/';
   const judul = a ? teks(a.judul) : 'Kabar Liga';
   const ringkas = a ? teks(a.ringkas) : 'Berita, analisis, dan cerita Liga Futsal KAF Beji.';
@@ -32,8 +33,10 @@ module.exports = async (req, res) => {
 <meta property="og:title" content="${esc(judul)}">
 <meta property="og:description" content="${esc(ringkas)}">
 <meta property="og:image" content="${esc(gambar)}">
+<meta property="og:image:secure_url" content="${esc(gambar)}">${a && a.lebar ? `
+<meta property="og:image:width" content="${a.lebar}">
+<meta property="og:image:height" content="${a.tinggi}">` : ""}
 <meta property="og:url" content="${esc(host + '/a/' + encodeURIComponent(id))}">
 <meta name="twitter:card" content="summary_large_image">
-<meta http-equiv="refresh" content="0;url=${esc(tujuan)}">
 </head><body><script>location.replace(${JSON.stringify(tujuan)})</script><a href="${esc(tujuan)}">${esc(judul)}</a></body></html>`);
 };
