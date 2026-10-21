@@ -8,7 +8,7 @@ const ARTIKEL = [
     "ringkas": "Panitia Liga Futsal KAF Beji membentuk tim wasit tetap, menambah asisten wasit, dan memberi tiap tim satu kali challenge per pertandingan.",
     "penulis": "Redaksi",
     "tanggal": "2026-10-21",
-    "gambar": "Logo liga.jpeg",
+    "gambar": "Handala.jpg",
     "tag": [
       "Wasit",
       "Panitia",
