@@ -2,6 +2,31 @@
 // kategori: Berita | Analisis | Editorial | Cerita | Sharing. isi = array paragraf (boleh <b>, <em>). kutipan opsional: [teks, sumber].
 const ARTIKEL = [
   {
+    "id": "panitia-benahi-sistem-wasit",
+    "kategori": "Berita",
+    "judul": "Wasit Tetap, Dua Asisten, dan Hak Challenge: Panitia Benahi Sistem Kewasitan",
+    "ringkas": "Panitia Liga Futsal KAF Beji membentuk tim wasit tetap, menambah asisten wasit, dan memberi tiap tim satu kali challenge per pertandingan.",
+    "penulis": "Redaksi",
+    "tanggal": "2026-10-21",
+    "gambar": "Logo liga.jpeg",
+    "tag": [
+      "Wasit",
+      "Panitia",
+      "Liga Futsal KAF Beji"
+    ],
+    "isi": [
+      "Panitia Liga Futsal KAF Beji berbenah. Ketua liga, <b>Handala</b>, menyampaikan bahwa berdasarkan evaluasi panitia, liga berikhtiar membenahi sistem kewasitan.",
+      "Ada tiga langkah yang diambil. Pertama, membentuk <b>tim wasit tetap</b>. Kedua, menambah satu asisten wasit, sehingga setiap laga kini dipimpin dengan <b>dua asisten wasit</b>.",
+      "Ketiga, dan yang paling baru: setiap tim mendapat <b>satu kali challenge</b> per pertandingan untuk meminta wasit meninjau ulang keputusannya. Hak ini hanya bisa dipakai untuk keputusan penting, seperti pelanggaran di kotak penalti dan sah tidaknya gol.",
+      "Di sisi lain, ketua federasi <b>Nurul Iman</b> meminta pemain dan peserta liga tidak terlalu membebani wasit dengan tuntutan harus selalu benar. Ia mengajak semua pihak kembali mengingat tujuan awal liga ini: mempererat ukhuwah, bukan malah saling bermusuhan.",
+      "Senada, <b>Dede Jalaludin</b>, sesepuh lapangan sintetis tempat liga digelar, meminta semua pihak lebih lapang dada. Wasit profesional pun banyak salahnya, dan pemain tetap mengikuti keputusan wasit."
+    ],
+    "kutipan": [
+      "Semuanya harus lebih lapang dada saja. Kalau ada kesalahan wasit ya dimaafkan saja, toh wasit pro juga banyak kesalahannya. Pemain enggak bisa ngapain, ikuti saja keputusan wasit.",
+      "Dede Jalaludin, sesepuh lapangan"
+    ]
+  },
+  {
     "id": "md3-rekap-klasemen-terbalik",
     "kategori": "Berita",
     "judul": "Matchday 3: Klasemen Jungkir Balik, Andalusia Kini di Puncak",
