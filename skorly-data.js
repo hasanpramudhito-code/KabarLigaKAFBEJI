@@ -3,91 +3,91 @@ window.SKORLY ={
   "klasemen": [
     {
       "tim": "Andalusia FC",
-      "main": 6,
-      "m": 3,
-      "s": 1,
+      "main": 8,
+      "m": 4,
+      "s": 2,
       "k": 2,
-      "gm": 8,
+      "gm": 9,
       "gk": 8,
-      "sg": 0,
-      "poin": 10
-    },
-    {
-      "tim": "Al-Madinah FC",
-      "main": 6,
-      "m": 2,
-      "s": 3,
-      "k": 1,
-      "gm": 5,
-      "gk": 6,
-      "sg": -1,
-      "poin": 9
+      "sg": 1,
+      "poin": 14
     },
     {
       "tim": "Mataram Islam FC",
-      "main": 6,
-      "m": 2,
-      "s": 2,
+      "main": 8,
+      "m": 3,
+      "s": 3,
       "k": 2,
-      "gm": 8,
-      "gk": 6,
-      "sg": 2,
-      "poin": 8
+      "gm": 11,
+      "gk": 8,
+      "sg": 3,
+      "poin": 12
     },
     {
       "tim": "Al-Quds FC",
-      "main": 6,
-      "m": 2,
-      "s": 2,
+      "main": 8,
+      "m": 3,
+      "s": 3,
       "k": 2,
-      "gm": 6,
-      "gk": 6,
-      "sg": 0,
-      "poin": 8
+      "gm": 8,
+      "gk": 7,
+      "sg": 1,
+      "poin": 12
+    },
+    {
+      "tim": "Al-Madinah FC",
+      "main": 8,
+      "m": 2,
+      "s": 4,
+      "k": 2,
+      "gm": 7,
+      "gk": 9,
+      "sg": -2,
+      "poin": 10
     },
     {
       "tim": "Ar Rayyah FC",
-      "main": 6,
+      "main": 8,
       "m": 2,
-      "s": 1,
-      "k": 3,
-      "gm": 14,
-      "gk": 12,
-      "sg": 2,
-      "poin": 7
+      "s": 2,
+      "k": 4,
+      "gm": 17,
+      "gk": 16,
+      "sg": 1,
+      "poin": 8
     },
     {
       "tim": "PPF Hamas",
-      "main": 6,
+      "main": 8,
       "m": 2,
-      "s": 1,
-      "k": 3,
-      "gm": 12,
-      "gk": 15,
-      "sg": -3,
-      "poin": 7
+      "s": 2,
+      "k": 4,
+      "gm": 14,
+      "gk": 18,
+      "sg": -4,
+      "poin": 8
     }
   ],
   "topSkor": [
     {
       "nama": "Ust Wakhid",
       "tim": "Ar Rayyah FC",
-      "gol": 8
+      "gol": 10
     },
     {
       "nama": "Dede",
       "tim": "Mataram Islam FC",
-      "gol": 7
+      "gol": 8
     },
     {
       "nama": "Ust Aldo",
       "tim": "PPF Hamas",
-      "gol": 6
+      "gol": 7
     },
     {
       "nama": "Andri",
       "tim": "Al-Quds FC",
-      "gol": 3
+      "gol": 4
     },
     {
       "nama": "Firman",
@@ -102,6 +102,21 @@ window.SKORLY ={
     {
       "nama": "Habib",
       "tim": "Andalusia FC",
+      "gol": 2
+    },
+    {
+      "nama": "Ibe",
+      "tim": "Al-Madinah FC",
+      "gol": 2
+    },
+    {
+      "nama": "Iman",
+      "tim": "PPF Hamas",
+      "gol": 2
+    },
+    {
+      "nama": "Ma'ruf",
+      "tim": "Ar Rayyah FC",
       "gol": 2
     },
     {
@@ -125,6 +140,11 @@ window.SKORLY ={
       "gol": 2
     },
     {
+      "nama": "Afik",
+      "tim": "Mataram Islam FC",
+      "gol": 1
+    },
+    {
       "nama": "Ardi",
       "tim": "Andalusia FC",
       "gol": 1
@@ -140,18 +160,8 @@ window.SKORLY ={
       "gol": 1
     },
     {
-      "nama": "Ibe",
-      "tim": "Al-Madinah FC",
-      "gol": 1
-    },
-    {
-      "nama": "Iman",
-      "tim": "PPF Hamas",
-      "gol": 1
-    },
-    {
-      "nama": "Ma'ruf",
-      "tim": "Ar Rayyah FC",
+      "nama": "Hasan",
+      "tim": "Mataram Islam FC",
       "gol": 1
     },
     {
@@ -163,8 +173,23 @@ window.SKORLY ={
       "nama": "Ust Faiz",
       "tim": "Andalusia FC",
       "gol": 1
+    },
+    {
+      "nama": "Ust Hakim",
+      "tim": "Al-Quds FC",
+      "gol": 1
+    },
+    {
+      "nama": "Ust Rizal",
+      "tim": "Andalusia FC",
+      "gol": 1
+    },
+    {
+      "nama": "Ust Walid",
+      "tim": "Al-Madinah FC",
+      "gol": 1
     }
   ],
-  "diperbarui": "2026-10-19T14:56:33.730Z",
+  "diperbarui": "2026-10-25T12:38:48.408Z",
   "sumber": "https://skorly.online/kaf-beji"
 };
