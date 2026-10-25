@@ -37,7 +37,10 @@ button:disabled { opacity:.5; cursor:wait; }
 
   <form id="masuk">
     <h2>Masuk</h2>
-    <label>Password redaksi<input type="password" name="password" required autocomplete="current-password"></label>
+    <label>Kunci GitHub <small>sekali saja, tersimpan di perangkat ini.
+      Belum punya? <a href="https://github.com/settings/personal-access-tokens/new?name=Kabar%20Liga&amp;target_name=hasanpramudhito-code&amp;contents=write" target="_blank" rel="noopener">Buat di sini</a>,
+      pilih repo KabarLigaKAFBEJI, lalu salin kuncinya ke sini.</small>
+      <input type="password" name="token" required autocomplete="off"></label>
     <button>Masuk</button>
   </form>
 
@@ -68,34 +71,46 @@ button:disabled { opacity:.5; cursor:wait; }
     <button>Terbitkan</button>
   </form>
 </main>
+<script src="admin.js"></script>
 <script>
+// Simpan langsung ke GitHub dari browser (tanpa server). Vercel deploy otomatis setiap commit.
+// ponytail: siapa pun yang memegang kunci GitHub bisa menerbitkan. Upgrade bila redaksi banyak: login per penulis lewat server.
+const REPO = 'hasanpramudhito-code/KabarLigaKAFBEJI';
 const $ = s => document.querySelector(s), masuk = $('#masuk'), tulis = $('#tulis');
-let password = '', fotoB64 = '';
-try { password = sessionStorage.getItem('pw') || ''; } catch {}
+let token = '', fotoB64 = '', gambarRepo = [];
+try { token = localStorage.getItem('gh') || ''; } catch {}
 
+const esc = s => String(s).replace(/</g, '&lt;');
 function pesan(html, ok) { const p = $('#pesan'); p.innerHTML = html; p.className = ok ? 'ok' : 'gagal'; scrollTo(0, 0); }
+const keB64 = teks => { const b = new TextEncoder().encode(teks); let s = ''; for (const x of b) s += String.fromCharCode(x); return btoa(s); };
+const dariB64 = b64 => new TextDecoder().decode(Uint8Array.from(atob(b64), c => c.charCodeAt(0)));
 
-async function api(body) {
-  const r = await fetch('/api/simpan', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password, ...body }) });
-  const j = await r.json().catch(() => ({ error: `Server membalas ${r.status}` }));
-  if (!r.ok) throw Object.assign(new Error(j.error), { status: r.status });
-  return j;
+async function gh(path, method = 'GET', body) {
+  const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${encodeURIComponent(path)}`, {
+    method, cache: 'no-store',
+    headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' },
+    body: body && JSON.stringify({ branch: 'main', ...body }),
+  });
+  if (r.status === 401) throw Object.assign(new Error('Kunci GitHub salah atau kedaluwarsa'), { status: 401 });
+  if (r.status === 403 || r.status === 404) throw Object.assign(new Error('Kunci tidak punya akses tulis ke repo KabarLigaKAFBEJI'), { status: 401 });
+  if (!r.ok) throw new Error(`GitHub ${r.status}: ${(await r.text()).slice(0, 200)}`);
+  return r.json();
 }
 
 async function buka() {
   try {
-    const { gambar } = await api({ aksi: 'daftar' });
-    tulis.gambar.innerHTML = gambar.map(g => `<option${g === 'Logo liga.jpeg' ? ' selected' : ''}>${g.replace(/</g, '&lt;')}</option>`).join('');
-    try { sessionStorage.setItem('pw', password); } catch {}
+    gambarRepo = (await gh('')).filter(f => /.(jpe?g|png|webp)$/i.test(f.name));
+    tulis.gambar.innerHTML = gambarRepo.map(g => `<option${g.name === 'Logo liga.jpeg' ? ' selected' : ''}>${esc(g.name)}</option>`).join('');
+    try { localStorage.setItem('gh', token); } catch {}
     masuk.hidden = true; tulis.hidden = false; $('#pesan').className = '';
   } catch (e) {
-    if (e.status === 401) try { sessionStorage.removeItem('pw'); } catch {}
-    pesan(e.message.replace(/</g, '&lt;'));
+    if (e.status === 401) try { localStorage.removeItem('gh'); } catch {}
+    pesan(esc(e.message));
   }
 }
 
-masuk.onsubmit = e => { e.preventDefault(); password = masuk.password.value; buka(); };
-if (password) buka();
+masuk.onsubmit = e => { e.preventDefault(); token = masuk.token.value.trim(); buka(); };
+if (token) buka();
 
 tulis.tanggal.value = new Date().toLocaleDateString('sv'); // YYYY-MM-DD zona lokal
 tulis.judul.oninput = () => { if (!tulis.id.dataset.manual) tulis.id.value = tulis.judul.value.toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60).replace(/-$/, ''); };
@@ -124,12 +139,19 @@ tulis.onsubmit = async e => {
   };
   tombol.disabled = true; tombol.textContent = 'Menyimpan...';
   try {
-    const { id } = await api({ artikel, unggah: fotoB64 });
+    const a = rapikan(artikel);
+    if (fotoB64) a.gambar = `${a.id}.jpg`;
+    const file = await gh('artikel.js');
+    const baru = sisipkan(dariB64(file.content), a); // validasi dulu sebelum commit apa pun
+    if (fotoB64) await gh(a.gambar, 'PUT', { message: `Gambar: ${a.judul}`, content: fotoB64,
+      sha: gambarRepo.find(g => g.name === a.gambar)?.sha }); // timpa sisa unggahan gagal dengan id sama
+    await gh('artikel.js', 'PUT', { message: `Artikel: ${a.judul}`, content: keB64(baru), sha: file.sha });
+    const id = a.id;
     const baca = `${location.origin}/#/baca/${id}`, share = `${location.origin}/a/${id}`;
     pesan(`Terbit! Situs ter-update dalam ±1 menit.<br>Baca: <a href="${baca}" target="_blank">${baca}</a><br>Share WhatsApp: <a href="${share}" target="_blank">${share}</a>`, true);
     f.reset(); delete f.id.dataset.manual; fotoB64 = ''; $('#pratinjau').style.display = 'none';
     f.tanggal.value = new Date().toLocaleDateString('sv');
-  } catch (err) { pesan('Gagal: ' + err.message.replace(/</g, '&lt;')); }
+  } catch (err) { pesan('Gagal: ' + esc(err.message || err)); }
   tombol.disabled = false; tombol.textContent = 'Terbitkan';
 };
 </script>
