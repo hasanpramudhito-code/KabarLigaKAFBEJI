@@ -93,6 +93,7 @@ Untuk menulis berita matchday: ambil CSV export, lihat laga pada tanggal itu, tu
 - **Klasemen & top skor**: `skorly-data.js`, dibuat otomatis oleh `update-skorly.js`. Jangan edit manual. GitHub Actions (`.github/workflows/update-klasemen.yml`) menjalankannya tiap Minggu 17.00/19.00/21.00 WIB. Update manual: `node update-skorly.js`, lalu commit dan push.
 - **Sponsor** (Garmen Seragam): objek `SPONSOR` dan banner `.sp-top` di `index.html`; gambar `sponsor-*.png`, `og-sponsor.jpg`.
 - **Link share dengan thumbnail**: `api/a.js` (Vercel function) + `vercel.json` (rewrite `/a/:id`). Link share artikel = `https://kabarligakafbeji.vercel.app/a/<id>`, sponsor = `/a/sponsor`. Artikel baru otomatis didukung, tidak perlu diubah.
+- **Dashboard redaksi**: `admin.html` + `api/simpan.js` (commit artikel.js lewat GitHub API). Env Vercel: `ADMIN_PASSWORD`, `GITHUB_TOKEN`. Self-check: `node -e "require('./api/simpan.js').cek()"`.
 - `_arsip/` berisi koran lama, tidak ikut repo.
 
 ## Setelah selesai, laporkan ke user

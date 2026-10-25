@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Dashboard Redaksi | Kabar Liga</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root { --hijau:#2c7746; --hitam:#111; --abu:#f2f2f2; --garis:#e5e5e5; --teks:#222; --redup:#888; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Roboto',sans-serif; color:var(--teks); background:var(--abu); }
+header { background:var(--hitam); color:#fff; padding:18px 16px; font-weight:900; font-size:20px; letter-spacing:1px; }
+header span { color:var(--hijau); }
+header a { float:right; font-size:13px; font-weight:500; color:#bbb; letter-spacing:0; }
+main { max-width:760px; margin:24px auto; padding:0 16px; }
+form { background:#fff; padding:24px; display:grid; gap:16px; border-top:4px solid var(--hijau); }
+h2 { font-size:18px; font-weight:900; text-transform:uppercase; }
+label { display:grid; gap:6px; font-size:13px; font-weight:700; }
+label small { font-weight:400; color:var(--redup); }
+input, select, textarea { font:inherit; font-size:15px; font-weight:400; padding:10px; border:1px solid var(--garis); width:100%; }
+textarea { min-height:260px; line-height:1.6; }
+.baris { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+button { background:var(--hijau); color:#fff; border:0; padding:12px 20px; font:inherit; font-weight:700; cursor:pointer; justify-self:start; }
+button:disabled { opacity:.5; cursor:wait; }
+#pesan { padding:12px; display:none; line-height:1.6; }
+#pesan.ok { display:block; background:#e3f3e8; } #pesan.gagal { display:block; background:#fde4e4; }
+#pratinjau { max-height:180px; display:none; }
+[hidden] { display:none !important; }
+@media (max-width:600px) { .baris { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<header>KABAR<span>LIGA</span> · Redaksi <a href="/">← Situs</a></header>
+<main>
+  <div id="pesan" role="status"></div>
+
+  <form id="masuk">
+    <h2>Masuk</h2>
+    <label>Password redaksi<input type="password" name="password" required autocomplete="current-password"></label>
+    <button>Masuk</button>
+  </form>
+
+  <form id="tulis" hidden>
+    <h2>Tulis Artikel</h2>
+    <label>Judul<input name="judul" required maxlength="150"></label>
+    <label>Alamat (id) <small>huruf kecil, angka, tanda -. Jadi link artikel, tidak bisa diubah setelah terbit.</small>
+      <input name="id" required pattern="[a-z0-9]+(-[a-z0-9]+)*"></label>
+    <div class="baris">
+      <label>Kategori<select name="kategori"><option>Berita</option><option>Analisis</option><option>Editorial</option><option>Cerita</option><option>Sharing</option></select></label>
+      <label>Tanggal <small>tanggal laga untuk berita hasil</small><input type="date" name="tanggal" required></label>
+    </div>
+    <div class="baris">
+      <label>Penulis<input name="penulis" value="Redaksi" required></label>
+      <label>Tag <small>pisahkan dengan koma</small><input name="tag" placeholder="Andalusia, Matchday 5"></label>
+    </div>
+    <label>Ringkasan <small>1-2 kalimat, tampil di daftar dan preview WhatsApp</small><textarea name="ringkas" required style="min-height:70px"></textarea></label>
+    <label>Isi <small>pisahkan paragraf dengan baris kosong. Tebal: &lt;b&gt;Nama&lt;/b&gt;, miring: &lt;em&gt;kata&lt;/em&gt;</small><textarea name="isi" required></textarea></label>
+    <div class="baris">
+      <label>Kutipan <small>opsional, hanya jika benar diucapkan</small><input name="kutipan"></label>
+      <label>Sumber kutipan<input name="sumber" placeholder="Nama, Jabatan"></label>
+    </div>
+    <div class="baris">
+      <label>Gambar dari repo<select name="gambar"></select></label>
+      <label>atau unggah foto baru <small>otomatis dikecilkan ke JPG &lt; 300 KB</small><input type="file" name="foto" accept="image/*"></label>
+    </div>
+    <img id="pratinjau" alt="Pratinjau gambar">
+    <button>Terbitkan</button>
+  </form>
+</main>
+<script>
+const $ = s => document.querySelector(s), masuk = $('#masuk'), tulis = $('#tulis');
+let password = '', fotoB64 = '';
+try { password = sessionStorage.getItem('pw') || ''; } catch {}
+
+function pesan(html, ok) { const p = $('#pesan'); p.innerHTML = html; p.className = ok ? 'ok' : 'gagal'; scrollTo(0, 0); }
+
+async function api(body) {
+  const r = await fetch('/api/simpan', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password, ...body }) });
+  const j = await r.json().catch(() => ({ error: `Server membalas ${r.status}` }));
+  if (!r.ok) throw Object.assign(new Error(j.error), { status: r.status });
+  return j;
+}
+
+async function buka() {
+  try {
+    const { gambar } = await api({ aksi: 'daftar' });
+    tulis.gambar.innerHTML = gambar.map(g => `<option${g === 'Logo liga.jpeg' ? ' selected' : ''}>${g.replace(/</g, '&lt;')}</option>`).join('');
+    try { sessionStorage.setItem('pw', password); } catch {}
+    masuk.hidden = true; tulis.hidden = false; $('#pesan').className = '';
+  } catch (e) {
+    if (e.status === 401) try { sessionStorage.removeItem('pw'); } catch {}
+    pesan(e.message.replace(/</g, '&lt;'));
+  }
+}
+
+masuk.onsubmit = e => { e.preventDefault(); password = masuk.password.value; buka(); };
+if (password) buka();
+
+tulis.tanggal.value = new Date().toLocaleDateString('sv'); // YYYY-MM-DD zona lokal
+tulis.judul.oninput = () => { if (!tulis.id.dataset.manual) tulis.id.value = tulis.judul.value.toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60).replace(/-$/, ''); };
+tulis.id.oninput = () => tulis.id.dataset.manual = 1;
+
+// Kecilkan foto di browser: lebar maks 1200 px, turunkan kualitas sampai < 300 KB.
+tulis.foto.onchange = async () => {
+  fotoB64 = ''; $('#pratinjau').style.display = 'none';
+  const f = tulis.foto.files[0]; if (!f) return;
+  const img = await createImageBitmap(f), skala = Math.min(1, 1200 / img.width), c = document.createElement('canvas');
+  c.width = Math.round(img.width * skala); c.height = Math.round(img.height * skala);
+  c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+  let url;
+  for (let q = 0.85; q > 0.3; q -= 0.1) { url = c.toDataURL('image/jpeg', q); if (url.length * 0.75 < 290 * 1024) break; }
+  fotoB64 = url.split(',')[1];
+  $('#pratinjau').src = url; $('#pratinjau').style.display = 'block';
+};
+
+tulis.onsubmit = async e => {
+  e.preventDefault();
+  const f = tulis, tombol = f.querySelector('button');
+  const artikel = {
+    id: f.id.value, kategori: f.kategori.value, judul: f.judul.value, ringkas: f.ringkas.value, penulis: f.penulis.value,
+    tanggal: f.tanggal.value, gambar: f.gambar.value, tag: f.tag.value.split(','),
+    isi: f.isi.value.split(/\n\s*\n/), kutipan: f.kutipan.value.trim() ? [f.kutipan.value, f.sumber.value] : [],
+  };
+  tombol.disabled = true; tombol.textContent = 'Menyimpan...';
+  try {
+    const { id } = await api({ artikel, unggah: fotoB64 });
+    const baca = `${location.origin}/#/baca/${id}`, share = `${location.origin}/a/${id}`;
+    pesan(`Terbit! Situs ter-update dalam ±1 menit.<br>Baca: <a href="${baca}" target="_blank">${baca}</a><br>Share WhatsApp: <a href="${share}" target="_blank">${share}</a>`, true);
+    f.reset(); delete f.id.dataset.manual; fotoB64 = ''; $('#pratinjau').style.display = 'none';
+    f.tanggal.value = new Date().toLocaleDateString('sv');
+  } catch (err) { pesan('Gagal: ' + err.message.replace(/</g, '&lt;')); }
+  tombol.disabled = false; tombol.textContent = 'Terbitkan';
+};
+</script>
+</body>
+</html>
