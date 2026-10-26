@@ -2,6 +2,122 @@
 // kategori: Berita | Analisis | Editorial | Cerita | Sharing. isi = array paragraf (boleh <b>, <em>). kutipan opsional: [teks, sumber].
 const ARTIKEL = [
   {
+    "id": "md4-quds-andalusia-kacamata",
+    "kategori": "Berita",
+    "judul": "Tembok Al Quds Tahan Laju Pemuncak, Andalusia Pulang dengan Satu Poin",
+    "ringkas": "Laga pembuka Matchday 4 berakhir 0-0. Al Quds meredam Andalusia yang di Matchday 1 menang 1-0 atas mereka.",
+    "penulis": "Redaksi",
+    "tanggal": "2026-10-25",
+    "gambar": "Al Quds.jpeg",
+    "tag": [
+      "Al Quds",
+      "Andalusia",
+      "Matchday 4"
+    ],
+    "isi": [
+      "Matchday 4 Liga Futsal KAF Beji, Minggu, 25 Oktober 2026, dibuka dengan duel <b>Al Quds</b> melawan pemuncak klasemen <b>Andalusia</b>. Hasilnya tanpa gol: 0-0.",
+      "Bagi Al Quds, hasil ini terasa seperti revans kecil. Di Matchday 1, mereka kalah 0-1 dari Andalusia lewat gol <b>Firman</b>. Kali ini gawang mereka tidak kebobolan.",
+      "Andalusia pun tidak pulang dengan tangan kosong. Satu poin tetap menjaga mereka di puncak, dan masih ada satu laga lagi hari itu untuk menambah jarak."
+    ]
+  },
+  {
+    "id": "md4-rayyah-mataram-imbang",
+    "kategori": "Berita",
+    "judul": "Empat Gol, Dua Poin Dibagi: Ar Rayyah dan Mataram Islam Saling Jegal",
+    "ringkas": "Ar Rayyah dan Mataram Islam bermain 2-2. Ust Wakhid kembali mencetak gol, Mataram menyamakan lewat Hasan dan Afik.",
+    "penulis": "Redaksi",
+    "tanggal": "2026-10-25",
+    "gambar": "ArRayah.jpeg",
+    "tag": [
+      "Ar Rayyah",
+      "Mataram Islam",
+      "Matchday 4"
+    ],
+    "isi": [
+      "Laga kedua Matchday 4 langsung ramai. <b>Ar Rayyah</b> dan <b>Mataram Islam</b> berbagi empat gol dan berbagi poin: 2-2.",
+      "Dari kubu Ar Rayyah, gol dicetak <b>Ust Wakhid</b> dan <b>Ma'ruf</b>. Mataram Islam membalas lewat <b>Hasan</b> dan <b>Afik</b>, dua nama yang jarang muncul di papan skor karena biasanya gol Mataram datang dari <b>Dede</b>.",
+      "Pertemuan pertama keduanya di Matchday 1 dimenangi Mataram 2-1 lewat dua gol Dede. Kali ini Ar Rayyah tidak kalah lagi."
+    ]
+  },
+  {
+    "id": "md4-madinah-hamas-2-2-lagi",
+    "kategori": "Berita",
+    "judul": "Skor yang Sama, Cerita yang Sama: Al Madinah dan PPF Hamas Kembali 2-2",
+    "ringkas": "Al Madinah dan PPF Hamas bermain 2-2, persis seperti pertemuan pertama mereka di Matchday 1.",
+    "penulis": "Redaksi",
+    "tanggal": "2026-10-25",
+    "gambar": "PPF Hamas.jpeg",
+    "tag": [
+      "Al Madinah",
+      "PPF Hamas",
+      "Matchday 4"
+    ],
+    "isi": [
+      "Sejarah berulang. <b>Al Madinah</b> dan <b>PPF Hamas</b> kembali bermain imbang 2-2, skor yang sama dengan pertemuan mereka di Matchday 1.",
+      "Gol Al Madinah dicetak <b>Ust Walid</b> dan <b>Ibe</b>. PPF Hamas membalas lewat <b>Ust Aldo</b> dan <b>Iman</b>. Menariknya, Ust Aldo dan Iman juga mencetak gol untuk Hamas pada laga 2-2 di Matchday 1.",
+      "Dua kali bertemu, dua kali 2-2. Sampai sekarang belum ada yang bisa mengalahkan yang lain di duel ini."
+    ]
+  },
+  {
+    "id": "md4-quds-tundukkan-rayyah",
+    "kategori": "Berita",
+    "judul": "Al Quds Ulangi Skor 2-1, Ar Rayyah Kembali Kalah",
+    "ringkas": "Al Quds menang 2-1 atas Ar Rayyah lewat gol Ust Hakim dan Andri. Skornya sama dengan pertemuan di Matchday 2.",
+    "penulis": "Redaksi",
+    "tanggal": "2026-10-25",
+    "gambar": "Al Quds.jpeg",
+    "tag": [
+      "Al Quds",
+      "Ar Rayyah",
+      "Matchday 4"
+    ],
+    "isi": [
+      "Setelah menahan Andalusia, <b>Al Quds</b> menambah tiga poin. Mereka menundukkan <b>Ar Rayyah</b> 2-1.",
+      "Gol Al Quds dicetak <b>Ust Hakim</b> dan <b>Andri</b>. Bagi Andri, ini gol keempatnya musim ini, terbanyak di Al Quds. Gol balasan Ar Rayyah lagi-lagi datang dari <b>Ust Wakhid</b>, gol kesepuluhnya.",
+      "Skor 2-1 ini sama dengan pertemuan keduanya di Matchday 2. Dengan empat poin dari dua laga hari ini, Al Quds naik ke 12 poin."
+    ]
+  },
+  {
+    "id": "md4-dede-bawa-mataram-menang",
+    "kategori": "Berita",
+    "judul": "Satu Gol Dede Cukup, Mataram Islam Atasi PPF Hamas",
+    "ringkas": "Mataram Islam menang tipis 1-0 atas PPF Hamas. Dede mencetak gol kedelapannya musim ini.",
+    "penulis": "Redaksi",
+    "tanggal": "2026-10-25",
+    "gambar": "Mataram Islam.jpeg",
+    "tag": [
+      "Mataram Islam",
+      "PPF Hamas",
+      "Dede",
+      "Matchday 4"
+    ],
+    "isi": [
+      "<b>Mataram Islam</b> mengamankan tiga poin dengan kemenangan 1-0 atas <b>PPF Hamas</b>. Gol tunggal laga ini dicetak <b>Dede</b>.",
+      "Gol itu adalah gol kedelapan Dede musim ini. Ia kini di peringkat dua daftar top skor, di bawah Ust Wakhid (Ar Rayyah) dengan 10 gol.",
+      "Di Matchday 2, Mataram menang 3-0 atas Hamas lewat hattrick Dede. Kali ini skornya lebih tipis, tapi hasilnya sama. Mataram mengumpulkan empat poin hari ini dan naik ke posisi dua dengan 12 poin."
+    ]
+  },
+  {
+    "id": "md4-andalusia-jaga-puncak",
+    "kategori": "Berita",
+    "judul": "Ust Rizal Penentu, Andalusia Tutup Matchday 4 di Puncak",
+    "ringkas": "Andalusia menang 1-0 atas Al Madinah lewat gol Ust Rizal, dan memimpin klasemen dengan 14 poin jelang laga terakhir.",
+    "penulis": "Redaksi",
+    "tanggal": "2026-10-25",
+    "gambar": "Andalusia.jpeg",
+    "tag": [
+      "Andalusia",
+      "Al Madinah",
+      "Klasemen",
+      "Matchday 4"
+    ],
+    "isi": [
+      "Laga penutup Matchday 4 mempertemukan <b>Al Madinah</b> dengan <b>Andalusia</b>. Satu gol <b>Ust Rizal</b> memberi Andalusia kemenangan 1-0.",
+      "Dalam dua laga hari ini, Andalusia tidak kebobolan sama sekali: 0-0 lawan Al Quds dan 1-0 lawan Al Madinah. Empat poin membawa mereka ke 14 poin, unggul dua poin dari Mataram Islam dan Al Quds yang sama-sama mengoleksi 12.",
+      "Klasemen setelah Matchday 4: Andalusia 14, Mataram Islam 12, Al Quds 12, Al Madinah 10, Ar Rayyah 8, PPF Hamas 8. Semua tim tinggal menyisakan dua laga di Matchday 5, Minggu, 8 November 2026."
+    ]
+  },
+  {
     "id": "panitia-benahi-sistem-wasit",
     "kategori": "Berita",
     "judul": "Wasit Tetap, Dua Asisten, dan Hak Challenge: Panitia Benahi Sistem Kewasitan",
