@@ -5,116 +5,142 @@ const ARTIKEL = [
     "id": "md4-quds-andalusia-kacamata",
     "kategori": "Berita",
     "judul": "Tembok Al Quds Tahan Laju Pemuncak, Andalusia Pulang dengan Satu Poin",
-    "ringkas": "Laga pembuka Matchday 4 berakhir 0-0. Al Quds meredam Andalusia yang di Matchday 1 menang 1-0 atas mereka.",
+    "ringkas": "Laga pembuka Matchday 4 berakhir 0-0. Al Quds meredam Andalusia dan langsung melompat dari posisi empat ke posisi dua klasemen.",
     "penulis": "Redaksi",
     "tanggal": "2026-10-25",
-    "gambar": "Al Quds.jpeg",
+    "gambar": "Squad Al Quds.jpg",
     "tag": [
       "Al Quds",
       "Andalusia",
+      "Klasemen",
       "Matchday 4"
     ],
     "isi": [
-      "Matchday 4 Liga Futsal KAF Beji, Minggu, 25 Oktober 2026, dibuka dengan duel <b>Al Quds</b> melawan pemuncak klasemen <b>Andalusia</b>. Hasilnya tanpa gol: 0-0.",
-      "Bagi Al Quds, hasil ini terasa seperti revans kecil. Di Matchday 1, mereka kalah 0-1 dari Andalusia lewat gol <b>Firman</b>. Kali ini gawang mereka tidak kebobolan.",
-      "Andalusia pun tidak pulang dengan tangan kosong. Satu poin tetap menjaga mereka di puncak, dan masih ada satu laga lagi hari itu untuk menambah jarak."
+      "Matchday 4 Liga Futsal KAF Beji, Minggu, 25 Oktober 2026, dibuka dengan duel yang ditunggu: <b>Al Quds</b> melawan pemuncak klasemen <b>Andalusia</b>. Sampai peluit panjang, papan skor tetap bersih: 0-0.",
+      "Andalusia datang dengan modal 10 poin dan status pemimpin klasemen. Mereka juga pegang rekor bagus atas Al Quds: di Matchday 1, gol tunggal <b>Firman</b> memberi Andalusia kemenangan 1-0.",
+      "Kali ini Al Quds tidak memberi celah. Gawang mereka tidak kebobolan, dan Andalusia yang biasanya klinis di depan gawang harus puas tanpa gol.",
+      "Satu poin terasa jauh lebih berharga bagi Al Quds. Sebelum laga, mereka ada di posisi empat dengan 8 poin. Usai laga, Al Quds naik ke <b>posisi dua dengan 9 poin</b>, menyalip Al Madinah dan Mataram Islam.",
+      "Andalusia tetap di puncak dengan 11 poin, tapi jarak dengan pengejar tinggal dua poin. Masih ada satu laga lagi bagi kedua tim hari itu, dan hasil laga pembuka ini ternyata jadi awal hari yang sangat panas di klasemen."
     ]
   },
   {
     "id": "md4-rayyah-mataram-imbang",
     "kategori": "Berita",
-    "judul": "Empat Gol, Dua Poin Dibagi: Ar Rayyah dan Mataram Islam Saling Jegal",
-    "ringkas": "Ar Rayyah dan Mataram Islam bermain 2-2. Ust Wakhid kembali mencetak gol, Mataram menyamakan lewat Hasan dan Afik.",
+    "judul": "Akhirnya! Hasan dan Afik Pecah Telur, Mataram Islam Curi Poin dari Ar Rayyah",
+    "ringkas": "Ar Rayyah dan Mataram Islam bermain 2-2. Yang paling heboh: Hasan dan Afik mencetak gol pertama mereka musim ini, dan Mataram naik ke posisi dua.",
     "penulis": "Redaksi",
     "tanggal": "2026-10-25",
-    "gambar": "ArRayah.jpeg",
+    "gambar": "Squad Mataram Islam.jpeg",
     "tag": [
       "Ar Rayyah",
       "Mataram Islam",
+      "Hasan",
+      "Afik",
+      "Klasemen",
       "Matchday 4"
     ],
     "isi": [
-      "Laga kedua Matchday 4 langsung ramai. <b>Ar Rayyah</b> dan <b>Mataram Islam</b> berbagi empat gol dan berbagi poin: 2-2.",
-      "Dari kubu Ar Rayyah, gol dicetak <b>Ust Wakhid</b> dan <b>Ma'ruf</b>. Mataram Islam membalas lewat <b>Hasan</b> dan <b>Afik</b>, dua nama yang jarang muncul di papan skor karena biasanya gol Mataram datang dari <b>Dede</b>.",
-      "Pertemuan pertama keduanya di Matchday 1 dimenangi Mataram 2-1 lewat dua gol Dede. Kali ini Ar Rayyah tidak kalah lagi."
+      "Selama tiga matchday, gol Mataram Islam hampir selalu punya satu nama: <b>Dede</b>. Tujuh dari delapan gol mereka sebelum laga ini dicetak Dede. Minggu, 25 Oktober 2026, cerita itu akhirnya berubah.",
+      "Melawan <b>Ar Rayyah</b>, dua gol Mataram datang dari <b>Hasan</b> dan <b>Afik</b>. Keduanya sama-sama mencetak <b>gol pertama mereka di Liga Futsal KAF Beji</b>. Bukan satu, tapi dua pemain sekaligus pecah telur di laga yang sama.",
+      "Bagi Mataram Islam, ini kabar besar. Tim yang selama ini dianggap bergantung pada Dede kini punya ancaman dari nama lain. Lawan yang sibuk menjaga Dede harus mulai berhitung ulang.",
+      "Ar Rayyah sendiri tidak kalah tajam. Gol mereka dicetak <b>Ust Wakhid</b>, gol kesembilannya musim ini, dan <b>Ma'ruf</b>. Laga pun berakhir 2-2. Di Matchday 1, Mataram menang 2-1 atas Ar Rayyah. Kali ini Ar Rayyah tidak kalah lagi.",
+      "Satu poin cukup membuat Mataram Islam naik dari posisi empat ke <b>posisi dua dengan 9 poin</b>, unggul selisih gol dari Al Quds. Ar Rayyah naik ke 8 poin, tetap di posisi lima.",
+      "Dan untuk Hasan dan Afik: selamat datang di papan skor. Semoga bukan yang terakhir."
     ]
   },
   {
     "id": "md4-madinah-hamas-2-2-lagi",
     "kategori": "Berita",
     "judul": "Skor yang Sama, Cerita yang Sama: Al Madinah dan PPF Hamas Kembali 2-2",
-    "ringkas": "Al Madinah dan PPF Hamas bermain 2-2, persis seperti pertemuan pertama mereka di Matchday 1.",
+    "ringkas": "Al Madinah dan PPF Hamas bermain 2-2, persis seperti di Matchday 1. Al Madinah sempat naik ke posisi dua, hanya satu poin di bawah Andalusia.",
     "penulis": "Redaksi",
     "tanggal": "2026-10-25",
-    "gambar": "PPF Hamas.jpeg",
+    "gambar": "Squad Al Madinah.jpg",
     "tag": [
       "Al Madinah",
       "PPF Hamas",
+      "Klasemen",
       "Matchday 4"
     ],
     "isi": [
-      "Sejarah berulang. <b>Al Madinah</b> dan <b>PPF Hamas</b> kembali bermain imbang 2-2, skor yang sama dengan pertemuan mereka di Matchday 1.",
-      "Gol Al Madinah dicetak <b>Ust Walid</b> dan <b>Ibe</b>. PPF Hamas membalas lewat <b>Ust Aldo</b> dan <b>Iman</b>. Menariknya, Ust Aldo dan Iman juga mencetak gol untuk Hamas pada laga 2-2 di Matchday 1.",
-      "Dua kali bertemu, dua kali 2-2. Sampai sekarang belum ada yang bisa mengalahkan yang lain di duel ini."
+      "Sejarah berulang. <b>Al Madinah</b> dan <b>PPF Hamas</b> kembali bermain imbang 2-2, skor yang sama persis dengan pertemuan mereka di Matchday 1.",
+      "Gol Al Madinah dicetak <b>Ust Walid</b> dan <b>Ibe</b>. Bagi Ust Walid, ini gol pertamanya musim ini. Ibe menambah koleksinya jadi dua gol, setelah gol penentu kemenangan atas Mataram Islam di Matchday 3.",
+      "PPF Hamas membalas lewat <b>Ust Aldo</b> dan <b>Iman</b>. Uniknya, dua nama ini juga yang mencetak gol Hamas di laga 2-2 Matchday 1. Bagi Ust Aldo, ini gol ketujuhnya, mengokohkan posisinya di peringkat tiga top skor.",
+      "Imbang ini membawa Al Madinah ke 10 poin dan <b>naik ke posisi dua</b>, menggeser Mataram Islam yang baru satu laga menempati posisi itu. Saat itu, Al Madinah hanya tertinggal satu poin dari Andalusia.",
+      "PPF Hamas naik ke 8 poin, menyamai Ar Rayyah. Hamas tetap di posisi enam karena kalah selisih gol, tapi jarak mereka dengan papan tengah kini tidak lagi lebar.",
+      "Dua kali bertemu, dua kali 2-2, empat gol untuk masing-masing tim. Duel ini belum punya pemenang."
     ]
   },
   {
     "id": "md4-quds-tundukkan-rayyah",
     "kategori": "Berita",
-    "judul": "Al Quds Ulangi Skor 2-1, Ar Rayyah Kembali Kalah",
-    "ringkas": "Al Quds menang 2-1 atas Ar Rayyah lewat gol Ust Hakim dan Andri. Skornya sama dengan pertemuan di Matchday 2.",
+    "judul": "Al Quds Rebut Puncak Klasemen untuk Pertama Kali, Ar Rayyah Kembali Takluk 2-1",
+    "ringkas": "Al Quds menang 2-1 atas Ar Rayyah lewat Ust Hakim dan Andri, dan untuk pertama kalinya musim ini duduk di puncak klasemen.",
     "penulis": "Redaksi",
     "tanggal": "2026-10-25",
-    "gambar": "Al Quds.jpeg",
+    "gambar": "Squad Ar Rayyah.jpg",
     "tag": [
       "Al Quds",
       "Ar Rayyah",
+      "Ust Wakhid",
+      "Klasemen",
       "Matchday 4"
     ],
     "isi": [
-      "Setelah menahan Andalusia, <b>Al Quds</b> menambah tiga poin. Mereka menundukkan <b>Ar Rayyah</b> 2-1.",
-      "Gol Al Quds dicetak <b>Ust Hakim</b> dan <b>Andri</b>. Bagi Andri, ini gol keempatnya musim ini, terbanyak di Al Quds. Gol balasan Ar Rayyah lagi-lagi datang dari <b>Ust Wakhid</b>, gol kesepuluhnya.",
-      "Skor 2-1 ini sama dengan pertemuan keduanya di Matchday 2. Dengan empat poin dari dua laga hari ini, Al Quds naik ke 12 poin."
+      "Setelah menahan Andalusia di laga pembuka, <b>Al Quds</b> kembali turun ke lapangan dan menundukkan <b>Ar Rayyah</b> 2-1.",
+      "Gol Al Quds dicetak <b>Ust Hakim</b>, gol pertamanya musim ini, dan <b>Andri</b>. Bagi Andri, ini gol keempatnya, terbanyak di Al Quds. Skor 2-1 ini juga sama dengan pertemuan keduanya di Matchday 2.",
+      "Ar Rayyah tetap punya <b>Ust Wakhid</b>. Gol balasannya di laga ini adalah gol kesepuluhnya musim ini. Ia jadi pemain pertama di liga yang menembus dua digit gol.",
+      "Tapi malam itu milik Al Quds. Dengan tambahan tiga poin, mereka mengumpulkan 12 poin dan <b>naik ke puncak klasemen</b>, untuk pertama kalinya musim ini. Andalusia, yang memimpin sejak akhir Matchday 3, turun ke posisi dua dengan 11 poin.",
+      "Empat poin dari dua laga, hanya satu gol kebobolan. Al Quds menunjukkan bahwa mereka penantang serius gelar.",
+      "Ar Rayyah tertahan di 8 poin, posisi lima. Masalahnya jelas: Ust Wakhid sudah mencetak sepuluh gol, tapi tim belum bisa mengubah gol-gol itu menjadi kemenangan yang cukup."
     ]
   },
   {
     "id": "md4-dede-bawa-mataram-menang",
     "kategori": "Berita",
-    "judul": "Satu Gol Dede Cukup, Mataram Islam Atasi PPF Hamas",
-    "ringkas": "Mataram Islam menang tipis 1-0 atas PPF Hamas. Dede mencetak gol kedelapannya musim ini.",
+    "judul": "Satu Gol Dede, Mataram Islam Gantian Duduki Puncak Klasemen",
+    "ringkas": "Mataram Islam menang 1-0 atas PPF Hamas lewat gol kedelapan Dede, dan menggeser Al Quds dari puncak klasemen hanya satu laga setelah Al Quds naik.",
     "penulis": "Redaksi",
     "tanggal": "2026-10-25",
-    "gambar": "Mataram Islam.jpeg",
+    "gambar": "Squad PPF Hamas.jpg",
     "tag": [
       "Mataram Islam",
       "PPF Hamas",
       "Dede",
+      "Klasemen",
       "Matchday 4"
     ],
     "isi": [
-      "<b>Mataram Islam</b> mengamankan tiga poin dengan kemenangan 1-0 atas <b>PPF Hamas</b>. Gol tunggal laga ini dicetak <b>Dede</b>.",
-      "Gol itu adalah gol kedelapan Dede musim ini. Ia kini di peringkat dua daftar top skor, di bawah Ust Wakhid (Ar Rayyah) dengan 10 gol.",
-      "Di Matchday 2, Mataram menang 3-0 atas Hamas lewat hattrick Dede. Kali ini skornya lebih tipis, tapi hasilnya sama. Mataram mengumpulkan empat poin hari ini dan naik ke posisi dua dengan 12 poin."
+      "Setelah Hasan dan Afik mencuri sorotan di laga sebelumnya, giliran sang andalan kembali bicara. Gol tunggal <b>Dede</b> memberi <b>Mataram Islam</b> kemenangan 1-0 atas <b>PPF Hamas</b>.",
+      "Gol itu adalah gol kedelapan Dede musim ini. Ia kokoh di peringkat dua daftar top skor, dua gol di belakang <b>Ust Wakhid</b> (Ar Rayyah).",
+      "Hasilnya juga mengulang cerita Matchday 2, ketika Mataram menang 3-0 atas Hamas lewat hattrick Dede. Kali ini skornya lebih tipis, tapi Hamas tetap tidak bisa membobol gawang Mataram dalam dua pertemuan.",
+      "Dampaknya ke klasemen langsung terasa. Dengan 12 poin, Mataram Islam menyamai Al Quds dan <b>naik ke puncak klasemen</b> berkat selisih gol yang lebih baik (+3 berbanding +1). Al Quds hanya bertahan satu laga di puncak.",
+      "Dalam satu hari, Mataram naik dari posisi tiga ke posisi satu dengan empat poin: imbang 2-2 lawan Ar Rayyah, lalu menang 1-0 lawan Hamas.",
+      "Bagi PPF Hamas, kekalahan ini membuat mereka tertahan di 8 poin dan tetap di dasar klasemen dengan selisih gol -4. Namun dengan jarak hanya empat poin dari posisi dua, Hamas belum benar-benar tertinggal."
     ]
   },
   {
     "id": "md4-andalusia-jaga-puncak",
     "kategori": "Berita",
-    "judul": "Ust Rizal Penentu, Andalusia Tutup Matchday 4 di Puncak",
-    "ringkas": "Andalusia menang 1-0 atas Al Madinah lewat gol Ust Rizal, dan memimpin klasemen dengan 14 poin jelang laga terakhir.",
+    "judul": "Puncak Tiga Kali Berpindah Tangan, Andalusia yang Menutup Hari sebagai Raja",
+    "ringkas": "Andalusia menang 1-0 atas Al Madinah lewat gol Ust Rizal di laga terakhir Matchday 4, dan merebut kembali puncak klasemen dengan 14 poin.",
     "penulis": "Redaksi",
     "tanggal": "2026-10-25",
-    "gambar": "Andalusia.jpeg",
+    "gambar": "Squad Andalusia.jpg",
     "tag": [
       "Andalusia",
       "Al Madinah",
+      "Ust Rizal",
       "Klasemen",
       "Matchday 4"
     ],
     "isi": [
-      "Laga penutup Matchday 4 mempertemukan <b>Al Madinah</b> dengan <b>Andalusia</b>. Satu gol <b>Ust Rizal</b> memberi Andalusia kemenangan 1-0.",
-      "Dalam dua laga hari ini, Andalusia tidak kebobolan sama sekali: 0-0 lawan Al Quds dan 1-0 lawan Al Madinah. Empat poin membawa mereka ke 14 poin, unggul dua poin dari Mataram Islam dan Al Quds yang sama-sama mengoleksi 12.",
-      "Klasemen setelah Matchday 4: Andalusia 14, Mataram Islam 12, Al Quds 12, Al Madinah 10, Ar Rayyah 8, PPF Hamas 8. Semua tim tinggal menyisakan dua laga di Matchday 5, Minggu, 8 November 2026."
+      "Matchday 4 adalah hari tergila untuk tabel klasemen. Puncak berpindah tangan tiga kali: dari Andalusia ke Al Quds, dari Al Quds ke Mataram Islam, lalu kembali ke <b>Andalusia</b> di laga penutup.",
+      "Sebelum laga terakhir, Andalusia ada di posisi tiga dengan 11 poin, tertinggal satu poin dari Mataram Islam dan Al Quds. Mereka butuh kemenangan atas <b>Al Madinah</b> untuk merebut kembali puncak.",
+      "Kemenangan itu datang lewat satu gol <b>Ust Rizal</b>, gol pertamanya musim ini. Skor 1-0 bertahan sampai akhir, dan Andalusia kembali ke <b>puncak dengan 14 poin</b>, unggul dua poin dari Mataram Islam dan Al Quds.",
+      "Bagi Andalusia, Matchday 4 adalah hari yang solid: dua laga tanpa kebobolan, 0-0 lawan Al Quds dan 1-0 lawan Al Madinah. Ini juga ulangan kemenangan mereka atas Al Madinah di Matchday 2, kala itu 3-0.",
+      "Al Madinah tertahan di 10 poin dan turun ke posisi empat. Padahal setelah imbang 2-2 lawan PPF Hamas, mereka sempat duduk di posisi dua.",
+      "Klasemen akhir Matchday 4: Andalusia 14, Mataram Islam 12, Al Quds 12, Al Madinah 10, Ar Rayyah 8, PPF Hamas 8. Tinggal satu matchday tersisa, Minggu, 8 November 2026, dengan dua laga per tim. Andalusia cukup menang dua kali untuk memastikan gelar juara."
     ]
   },
   {
