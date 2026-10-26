@@ -2,6 +2,37 @@
 // kategori: Berita | Analisis | Editorial | Cerita | Sharing. isi = array paragraf (boleh <b>, <em>). kutipan opsional: [teks, sumber].
 const ARTIKEL = [
   {
+    "id": "editorial-md4-kursi-panas",
+    "kategori": "Editorial",
+    "judul": "Kursi Panas Bernama Puncak Klasemen",
+    "ringkas": "Dalam satu sore, 25 Oktober, puncak klasemen tiga kali berganti penghuni. Andalusia pulang sebagai pemimpin, tapi lima tim masih punya hitungan untuk juara.",
+    "penulis": "Redaksi",
+    "tanggal": "2026-10-25",
+    "gambar": "Logo liga.jpeg",
+    "tag": [
+      "Matchday 4",
+      "Klasemen",
+      "Peluang Juara",
+      "Andalusia",
+      "Mataram Islam",
+      "Al Quds"
+    ],
+    "isi": [
+      "Ada kursi di Liga Futsal KAF Beji yang Minggu sore, 25 Oktober 2026, tidak bisa diduduki lama-lama. Namanya puncak klasemen. Siapa pun yang duduk di sana, kursinya keburu panas sebelum sempat bersandar.",
+      "Andalusia membuka hari sebagai pemilik kursi. Ditahan 0-0 oleh <b>Al Quds</b> di laga pembuka, mereka masih bertahan. Dua laga berikutnya berakhir imbang 2-2: Ar Rayyah lawan Mataram Islam, lalu Al Madinah lawan PPF Hamas. Kursi masih aman, tapi para pengejar makin rapat.",
+      "Lalu Al Quds menang 2-1 atas Ar Rayyah dan, untuk pertama kalinya musim ini, duduk di puncak. Satu laga saja. Mataram Islam menang 1-0 atas PPF Hamas lewat gol <b>Dede</b> dan menggeser Al Quds dengan selisih gol. Satu laga lagi. Di laga penutup, gol <b>Ust Rizal</b> membawa <b>Andalusia</b> menang 1-0 atas Al Madinah, dan kursi itu kembali ke pemilik awalnya.",
+      "Tiga kali berpindah tangan dalam satu sore. Kalau kursi ini bisa bicara, mungkin ia minta istirahat.",
+      "Di tengah keributan klasemen, ada cerita kecil yang pantas dirayakan. <b>Hasan</b> dan <b>Afik</b> mencetak gol pertama mereka untuk Mataram Islam, di laga yang sama. Tim yang selama ini identik dengan Dede ternyata punya nama lain yang bisa mengisi papan skor. Ust Hakim (Al Quds), Ust Walid (Al Madinah), dan Ust Rizal (Andalusia) juga mencetak gol pertama mereka musim ini. Sore itu ramai dengan pecah telur.",
+      "Sementara itu, <b>Ust Wakhid</b> terus berjalan sendirian di daftar top skor. Dua gol hari itu membuatnya menembus sepuluh gol, pemain pertama di liga yang mencapai dua digit. Sayangnya untuk Ar Rayyah, gol-gol itu hanya berbuah satu poin dari dua laga.",
+      "Sekarang soal yang paling ditunggu: siapa juara? Tinggal satu matchday, Minggu, 8 November 2026, dengan dua laga per tim. Klasemen: Andalusia 14, Mataram Islam 12, Al Quds 12, Al Madinah 10, Ar Rayyah 8, PPF Hamas 8.",
+      "Redaksi menghitung semua 729 kemungkinan hasil enam laga tersisa (menang, seri, atau kalah), dengan anggapan setiap hasil sama mungkin. Jika ada yang sama poin di puncak, peluangnya dibagi rata karena aturan penentu peringkat belum kami pastikan. Hasilnya: <b>Andalusia sekitar 59%</b>, <b>Mataram Islam 19%</b>, <b>Al Quds 18%</b>, Al Madinah 3,5%, sementara Ar Rayyah dan PPF Hamas masing-masing hanya 0,2%.",
+      "Kuncinya ada di tangan Andalusia. Dua kemenangan atas PPF Hamas dan Ar Rayyah membawa mereka ke 20 poin, dan tidak ada tim lain yang bisa menyusul. Menang sekali dan seri sekali pun belum tentu cukup untuk juara sendirian, karena Mataram atau Al Quds yang menang dua kali bisa menyamai di 18 poin.",
+      "Lalu ada laga <b>Al Quds lawan Mataram Islam</b> pukul 15.45. Ini semacam final kecil. Yang kalah hampir pasti tersingkir dari perebutan gelar, yang menang tinggal berharap Andalusia tersandung. Al Madinah butuh menang dua kali sambil berdoa Andalusia gagal menang sama sekali.",
+      "Untuk Ar Rayyah dan PPF Hamas, peluangnya tipis sekali: mereka hanya bisa menyamai poin teratas di 14, dengan syarat Andalusia kalah dua kali dan hasil lain berpihak semua. Tapi angka bukan segalanya. Mereka juga yang akan menghadapi Andalusia, dan di tangan mereka nasib gelar ikut ditentukan.",
+      "Kursi panas itu masih menunggu pemilik tetapnya. Dua minggu lagi, kita tahu siapa yang benar-benar betah duduk di sana. Sampai saat itu, satu pesan dari redaksi: tetap jaga ukhuwah, karena tujuan liga ini lebih besar dari sekadar piala."
+    ]
+  },
+  {
     "id": "md4-quds-andalusia-kacamata",
     "kategori": "Berita",
     "judul": "Tembok Al Quds Tahan Laju Pemuncak, Andalusia Pulang dengan Satu Poin",
