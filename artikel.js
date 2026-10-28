@@ -6,7 +6,7 @@ const ARTIKEL = [
     "kategori": "Sharing",
     "judul": "Realitas Ukhuwah PPF Hamas dan Al Madinah",
     "ringkas": "Dua kali bertemu, dua kali imbang 2-2. Ditambah dua pemain yang rela absen demi membersamai santri di DAHAM. Ukhuwah PPF Hamas dan Al Madinah nyata di lapangan.",
-    "penulis": "Pembaca",
+    "penulis": "Abu Ahsan",
     "tanggal": "2026-10-28",
     "gambar": "ukhuwah-hamas-almadinah.jpg",
     "tag": ["PPF Hamas", "Al Madinah", "Matchday 1", "Matchday 4", "Ukhuwah"],
