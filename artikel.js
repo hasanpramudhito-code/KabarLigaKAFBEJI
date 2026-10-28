@@ -13,7 +13,7 @@ const ARTIKEL = [
     "isi": [
       "Maasya Alloh, realitas ukhuwah pada Liga Futsal KAF Beji nampak pada fakta pertemuan antara <b>PPF Hamas</b> dan <b>Al Madinah</b>.",
       "Alhamdulillah kedua tim tersebut memiliki beberapa kesamaan. Pertama, dua kali pertemuan di Matchday 1 dan Matchday 4 berakhir imbang dengan skor sama, 2-2. Poin yang diraih adil, tidak ada yang tersakiti, dan ukhuwah semakin erat.",
-      "Kedua, masing-masing tim memiliki anggota, <b>Ustadz Salman</b> (PPF Hamas) dan <b>Ustadz Azzam</b> (Al Madinah), yang dengan ikhlas mengorbankan diri untuk tidak memperkuat tim pada Ahad, 25 Oktober 2026. Alasannya: membersamai santriwan di Dauroh Hamasyiah (DAHAM).",
+      "Kedua, masing-masing tim memiliki anggota, <b>Ustadz Salman</b> (PPF Hamas) dan <b>Ustadz Azzam</b> (Al Madinah), yang dengan ikhlas mengorbankan diri untuk tidak memperkuat tim pada Ahad, 25 Oktober 2026. Alasannya: membersamai santriwan di Dauroh Hamasyiah (DAHAM). Ini bukan sekadar tugas negara, melainkan tugas peradaban.",
       "InsyaAlloh menjadi amal sholih mereka. Semoga PPF Hamas dan Al Madinah mendapat bonus dua kemenangan di dua pertandingan terakhir Liga Futsal KAF Beji. Aamiin yaa robbal 'aalamiin."
     ]
   },
