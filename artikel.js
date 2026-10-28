@@ -2,6 +2,22 @@
 // kategori: Berita | Analisis | Editorial | Cerita | Sharing. isi = array paragraf (boleh <b>, <em>). kutipan opsional: [teks, sumber].
 const ARTIKEL = [
   {
+    "id": "sharing-ukhuwah-hamas-almadinah",
+    "kategori": "Sharing",
+    "judul": "Realitas Ukhuwah PPF Hamas dan Al Madinah",
+    "ringkas": "Dua kali bertemu, dua kali imbang 2-2. Ditambah dua pemain yang rela absen demi membersamai santri di DAHAM. Ukhuwah PPF Hamas dan Al Madinah nyata di lapangan.",
+    "penulis": "Pembaca",
+    "tanggal": "2026-10-28",
+    "gambar": "ukhuwah-hamas-almadinah.jpg",
+    "tag": ["PPF Hamas", "Al Madinah", "Matchday 1", "Matchday 4", "Ukhuwah"],
+    "isi": [
+      "Maasya Alloh, realitas ukhuwah pada Liga Futsal KAF Beji nampak pada fakta pertemuan antara <b>PPF Hamas</b> dan <b>Al Madinah</b>.",
+      "Alhamdulillah kedua tim tersebut memiliki beberapa kesamaan. Pertama, dua kali pertemuan di Matchday 1 dan Matchday 4 berakhir imbang dengan skor sama, 2-2. Poin yang diraih adil, tidak ada yang tersakiti, dan ukhuwah semakin erat.",
+      "Kedua, masing-masing tim memiliki anggota, <b>Ustadz Salman</b> (PPF Hamas) dan <b>Ustadz Azzam</b> (Al Madinah), yang dengan ikhlas mengorbankan diri untuk tidak memperkuat tim pada Ahad, 25 Oktober 2026. Alasannya: membersamai santriwan di Dauroh Hamasyiah (DAHAM).",
+      "InsyaAlloh menjadi amal sholih mereka. Semoga PPF Hamas dan Al Madinah mendapat bonus dua kemenangan di dua pertandingan terakhir Liga Futsal KAF Beji. Aamiin yaa robbal 'aalamiin."
+    ]
+  },
+  {
     "id": "editorial-md4-kursi-panas",
     "kategori": "Editorial",
     "judul": "Kursi Panas Bernama Puncak Klasemen",
